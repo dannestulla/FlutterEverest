@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'main.dart';
 
 class SelectedCriptoScreen extends StatelessWidget {
   const SelectedCriptoScreen({super.key});
-
-
 
   @override
   Widget build(BuildContext context) {
