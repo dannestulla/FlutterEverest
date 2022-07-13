@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:listagem_cripto/bitcoin_screen.dart';
-import 'package:listagem_cripto/ethereum_screen.dart';
-import 'litecoin_screen.dart';
+import 'package:listagem_cripto/selected_cripto_screen.dart';
 
 void main() {
   runApp(MaterialApp(title: "Routes", initialRoute: '/', routes: {
     '/': (context) => MyApp(),
-    '/ETH': (context) => const EthereumScreen(),
-    '/BTC': (context) => const BitcoinScreen(),
-    '/LTC': (context) => const LitecoinScreen()
+    '/selected_cripto': (context) => const SelectedCriptoScreen()
   }));
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  MyApp({super.key});
 
-  var criptosList = [
-    Criptos("ETH", "Ethereum", "R\$ 0,00", 0.75),
-    Criptos("BTC", "Bitcoin", "R\$ 1.000,00", 0.75),
-    Criptos("LTC", "Litecoin", "R\$ 0,00", -0.07)
+  final List<Criptos> criptosList = [
+    Criptos("ETH", "Ethereum", "R\$ 0,00", "75%"),
+    Criptos("BTC", "Bitcoin", "R\$ 1.000,00", "75%"),
+    Criptos("LTC", "Litecoin", "R\$ 0,00", "-7%")
   ];
 
   @override
@@ -34,13 +30,15 @@ class MyApp extends StatelessWidget {
           child: Text("USS 1.000,00", style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold))),
       Expanded(
           child: ListView.builder(
-              itemCount: 3,
+              itemCount: criptosList.length,
               itemBuilder: (context, index) {
                 return GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, "/" + criptosList[index].currencyInitials);
+                      Navigator.pushNamed(context, "/selected_cripto",
+                          arguments: SelectedCriptoArguments(criptosList[index]));
                     },
                     child: Card(
+                        elevation: 0,
                         child: Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: Row(
@@ -63,9 +61,11 @@ class MyApp extends StatelessWidget {
                                     Card(
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(40),
-                                          //set border radius more than 50% of height and width to make circle
                                         ),
-                                        color: Colors.deepOrange,
+                                        color:
+                                            criptosList[index].percentage.toString().contains('-')
+                                                ? Colors.deepOrange
+                                                : Colors.green,
                                         child: SizedBox(
                                             height: 18,
                                             width: 50,
@@ -86,7 +86,7 @@ class Criptos {
   String currencyInitials;
   String currencyName;
   String price;
-  double percentage;
+  String percentage;
 
   Criptos(this.currencyInitials, this.currencyName, this.price, this.percentage);
 }
