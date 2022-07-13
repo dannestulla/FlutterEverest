@@ -4,7 +4,7 @@ import 'package:listagem_cripto/selected_cripto_screen.dart';
 void main() {
   runApp(MaterialApp(title: "Routes", initialRoute: '/', routes: {
     '/': (context) => MyApp(),
-    '/selected_cripto': (context) => const SelectedCriptoScreen()
+    SelectedCriptoScreen.selectedCriptoScreen: (context) => const SelectedCriptoScreen()
   }));
 }
 

@@ -3,6 +3,8 @@ import 'main.dart';
 
 class SelectedCriptoScreen extends StatelessWidget {
   const SelectedCriptoScreen({super.key});
+  static const selectedCriptoScreen = '/selected_cripto';
+
 
   @override
   Widget build(BuildContext context) {
