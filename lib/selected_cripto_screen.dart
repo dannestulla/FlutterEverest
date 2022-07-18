@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'cripto_list_selection.dart';
 
 class SelectedCriptoScreen extends StatelessWidget {
-  const SelectedCriptoScreen({super.key});
+  const SelectedCriptoScreen({Key? key}) : super(key: key);
   static const selectedCriptoScreen = '/selected_cripto';
-
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as SelectedCriptoArguments;
+    final args =
+        ModalRoute.of(context)!.settings.arguments as SelectedCriptoArguments;
 
     return Scaffold(
       appBar: AppBar(title: Text(args.criptos.currencyName)),
