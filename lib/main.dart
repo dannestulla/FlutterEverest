@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:listagem_cripto/selected_cripto_screen.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:listagem_cripto/screens/cripto_screen.dart';
 
-import 'cripto_list_selection.dart';
+import 'screens/list_screen.dart';
 
 void main() {
-  runApp(MaterialApp(title: "Routes", initialRoute: '/', routes: {
+  runApp(ProviderScope(child: MaterialApp(title: "Routes", initialRoute: '/', routes: {
     '/': (context) => CriptoListSelection(),
     SelectedCriptoScreen.selectedCriptoScreen: (context) =>
         const SelectedCriptoScreen()
-  }));
+  })));
 }

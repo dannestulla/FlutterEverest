@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:listagem_cripto/selected_cripto_screen.dart';
+import 'package:listagem_cripto/screens/cripto_screen.dart';
 
 class CriptoListSelection extends StatelessWidget {
   CriptoListSelection({Key? key}) : super(key: key);
@@ -102,7 +102,7 @@ class CriptoListSelection extends StatelessWidget {
             label: 'Movimentações',
           ),
         ],
-        currentIndex: 0,
+        currentIndex: 1,
         selectedItemColor: Color.fromARGB(255, 255, 21, 134)
       ));
   }
