@@ -6,17 +6,18 @@ extension Converter on DaysSelected {
   toText() {
     switch (this) {
       case DaysSelected.fiveDays:
-        return const Text("5D", style: TextStyle(color: Color.fromARGB(255, 103, 103, 103), fontWeight: FontWeight.bold));
+        return formatButtomText("5D");
       case DaysSelected.tenDays:
-        return const Text("10D", style: TextStyle(color: Color.fromARGB(255, 103, 103, 103), fontWeight: FontWeight.bold));
+        return formatButtomText("10D");
       case DaysSelected.fifteenDays:
-        return const Text("15D", style: TextStyle(color: Color.fromARGB(255, 103, 103, 103), fontWeight: FontWeight.bold));
+        return formatButtomText("15D");
       case DaysSelected.thirdyDays:
-        return const Text("30D", style: TextStyle(color: Color.fromARGB(255, 103, 103, 103), fontWeight: FontWeight.bold));
+        return formatButtomText("30D");
       case DaysSelected.fiftyDays:
-        return const Text("50D", style: TextStyle(color: Color.fromARGB(255, 103, 103, 103), fontWeight: FontWeight.bold));
+        return formatButtomText("50D");
     }
   }
+
   convertToInteger() {
     switch (this) {
       case DaysSelected.fiveDays:
@@ -31,4 +32,11 @@ extension Converter on DaysSelected {
         return 50;
     }
   }
+}
+
+Text formatButtomText(String daySelected) {
+  return Text(daySelected,
+      style: const TextStyle(
+          color: Color.fromARGB(255, 103, 103, 103),
+          fontWeight: FontWeight.bold),);
 }

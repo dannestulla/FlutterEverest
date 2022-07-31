@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:listagem_cripto/extention_functions.dart';
+import 'package:listagem_cripto/utils/extention_functions.dart';
 
 class DaysFilterButtons extends StatefulWidget {
   DaysFilterButtons({Key? key, required this.daysCallback}) : super(key: key);
@@ -29,6 +29,7 @@ class DaysFilterButtonsState extends State<DaysFilterButtons> {
         DaysSelected.fiftyDays.toText()
       ],
       renderBorder: false,
+      fillColor: const Color.fromARGB(255, 213, 213, 213),
       onPressed: (int index) {
         setState(() {
           for (int buttonIndex = 0;

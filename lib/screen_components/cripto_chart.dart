@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
-import 'package:listagem_cripto/extention_functions.dart';
+import 'package:listagem_cripto/utils/extention_functions.dart';
 
 import '../mock_chart_data.dart';
 import 'days_filter.dart';
@@ -19,17 +19,22 @@ class _CriptoChartState extends State<CriptoChart> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      SizedBox(
-          height: 300,
-          width: 500,
-          child: charts.LineChart(seriesList2, animate: animate2)),
-      DaysFilterButtons(daysCallback: (dias) {
-        setState(() {
-          seriesList2 = createCriptoData(dias.convertToInteger());
-        });
-      })
-    ]);
+    return Container(
+        padding: const EdgeInsets.all(5),
+        color: const Color.fromARGB(249, 238, 239, 243),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          const Text("USS 0,00",
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+          SizedBox(
+              height: 200,
+              width: 500,
+              child: charts.LineChart(seriesList2, animate: animate2)),
+          DaysFilterButtons(daysCallback: (dias) {
+            setState(() {
+              seriesList2 = createCriptoData(dias.convertToInteger());
+            });
+          })
+        ]));
   }
 }
 
