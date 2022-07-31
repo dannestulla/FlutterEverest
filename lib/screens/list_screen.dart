@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:listagem_cripto/screen_components/percentage_ball.dart';
+import 'package:listagem_cripto/screen_components/percentage_indicator.dart';
 import 'package:listagem_cripto/screens/cripto_screen.dart';
 
 import '../screen_components/bottom_navigation.dart';

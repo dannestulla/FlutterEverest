@@ -38,3 +38,5 @@ List<CriptoChartModel> createCriptodata(
   }
   return list;
 }
+
+

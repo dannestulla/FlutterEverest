@@ -19,8 +19,8 @@ class DaysFilterButtonsState extends State<DaysFilterButtons> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: ToggleButtons(
+    return ToggleButtons(
+      constraints: const BoxConstraints(minHeight: 30, minWidth: 40),
       children: <Widget>[
         DaysSelected.fiveDays.toText(),
         DaysSelected.tenDays.toText(),
@@ -45,7 +45,7 @@ class DaysFilterButtonsState extends State<DaysFilterButtons> {
         });
       },
       isSelected: isSelected,
-    ));
+    );
   }
 }
 

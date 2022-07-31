@@ -1,4 +1,3 @@
-
 class Strings {
   static const detalhes = "Detalhes";
   static const moeda = "Moeda";
@@ -11,4 +10,7 @@ class Strings {
   static const vinteMil = "USS 20.000,00";
   static const doisCents = "USS 0,02";
   static const quatroSete = "USS 0,47";
+  static const home = "Home";
+  static const carteiras = "Carteiras";
+  static const movimentacoes = "Movimentações";
 }

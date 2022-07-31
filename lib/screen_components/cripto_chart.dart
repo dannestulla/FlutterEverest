@@ -3,7 +3,8 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:listagem_cripto/utils/extention_functions.dart';
 
-import '../mock_chart_data.dart';
+import '../utils/mock_chart_data.dart';
+import 'chart_type_button.dart';
 import 'days_filter.dart';
 
 class CriptoChart extends StatefulWidget {
@@ -29,11 +30,17 @@ class _CriptoChartState extends State<CriptoChart> {
               height: 200,
               width: 500,
               child: charts.LineChart(seriesList2, animate: animate2)),
-          DaysFilterButtons(daysCallback: (dias) {
-            setState(() {
-              seriesList2 = createCriptoData(dias.convertToInteger());
-            });
-          })
+          Row(
+            children: [
+              DaysFilterButtons(daysCallback: (dias) {
+                setState(() {
+                  seriesList2 = createCriptoData(dias.convertToInteger());
+                });
+              }),
+              const Spacer(),
+              chartTypeButton()
+            ],
+          )
         ]));
   }
 }

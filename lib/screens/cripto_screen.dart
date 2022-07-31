@@ -22,7 +22,7 @@ class SelectedCriptoScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(Strings.moeda +"\n" + args.criptos.currencyName,
+                Text(Strings.moeda + "\n" + args.criptos.currencyName,
                     style: CustomTextStyle.titleBold),
                 const SizedBox(height: 20),
                 const CriptoChart(),
@@ -38,9 +38,9 @@ class SelectedCriptoScreen extends StatelessWidget {
                     title: Strings.ethereum,
                     value: Strings.vinteMil,
                     subTitle: Strings.valorAtual),
-                const SizedBox(height: 5),
-                detailsRow(
-                  title: Strings.capDeMercado),
+                const SizedBox(height: 10),
+                detailsRowPercent(
+                    title: Strings.capDeMercado, percentage: "+0,2%"),
                 detailsRow(
                     title: Strings.valorMinimo, value: Strings.doisCents),
                 detailsRow(

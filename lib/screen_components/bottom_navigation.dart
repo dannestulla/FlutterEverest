@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../utils/strings.dart';
+
 Widget bottomNavigation() {
   return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          label: 'Home',
+          label: Strings.home,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.wallet),
-          label: 'Carteiras',
+          label: Strings.carteiras,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.settings_input_component_outlined),
-          label: 'Movimentações',
+          label: Strings.movimentacoes,
         ),
       ],
       currentIndex: 1,

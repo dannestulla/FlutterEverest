@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:listagem_cripto/screens/list_screen.dart';
 
-Widget percentageIndicator(String percentage) {
+Widget percentageIndicator(String? percentage) {
   return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(40),
       ),
       color: percentage.toString().contains('-')
-          ? Colors.deepOrange
-          : Colors.green,
+          ? const Color.fromARGB(255, 255, 118, 118)
+          : const Color.fromARGB(255, 101, 234, 105),
       child: SizedBox(
           height: 18,
           width: 50,
           child: Text(percentage.toString(),
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 16, color: Colors.black))));
+              style: const TextStyle(fontSize: 15, color: Colors.black))));
 }
