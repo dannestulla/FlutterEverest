@@ -17,7 +17,8 @@ class SelectedCriptoScreen extends StatelessWidget {
 
     return Scaffold(
         appBar: getAppBar(),
-        body: Padding(
+        body: SingleChildScrollView(
+          child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +47,7 @@ class SelectedCriptoScreen extends StatelessWidget {
                 detailsRow(
                     title: Strings.valorMaximo, value: Strings.quatroSete),
               ],
-            )));
+            ))));
   }
 }
 
