@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../utils/strings.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
@@ -19,5 +18,5 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(100);
+  Size get preferredSize => const Size.fromHeight(50);
 }

@@ -41,7 +41,7 @@ class DetailsRowPercent extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: Row(children: [
-        Text(title ?? "", style: CustomTextStyle.rowText),
+        Text(title, style: CustomTextStyle.rowText),
         const Spacer(),
         PercentageIndicator(percentage: percentage)
       ]),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../utils/strings.dart';
 
 class CustomBottomNavigation extends StatelessWidget {
