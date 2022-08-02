@@ -38,7 +38,7 @@ class _CriptoChartState extends State<CriptoChart> {
                 });
               }),
               const Spacer(),
-              chartTypeButton()
+              const ChartTypeButton()
             ],
           )
         ]));

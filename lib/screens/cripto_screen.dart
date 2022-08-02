@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:listagem_cripto/screen_components/app_bar.dart';
 import 'package:listagem_cripto/utils/strings.dart';
 import 'package:listagem_cripto/utils/styles.dart';
+import '../screen_components/app_bar.dart';
 import '../screen_components/cripto_chart.dart';
 import '../screen_components/details_row.dart';
 import 'list_screen.dart';
@@ -16,7 +16,7 @@ class SelectedCriptoScreen extends StatelessWidget {
         ModalRoute.of(context)!.settings.arguments as SelectedCriptoArguments;
 
     return Scaffold(
-        appBar: getAppBar(),
+        appBar: const CustomAppBar(),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(20),
@@ -35,16 +35,16 @@ class SelectedCriptoScreen extends StatelessWidget {
                   thickness: 1,
                   color: Color.fromARGB(255, 220, 220, 220),
                 ),
-                detailsRow(
+                const DetailsRow(
                     title: Strings.ethereum,
                     value: Strings.vinteMil,
                     subTitle: Strings.valorAtual),
                 const SizedBox(height: 10),
-                detailsRowPercent(
+                const DetailsRowPercent(
                     title: Strings.capDeMercado, percentage: "+0,2%"),
-                detailsRow(
+                const DetailsRow(
                     title: Strings.valorMinimo, value: Strings.doisCents),
-                detailsRow(
+                const DetailsRow(
                     title: Strings.valorMaximo, value: Strings.quatroSete),
               ],
             ))));

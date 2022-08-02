@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:listagem_cripto/utils/extention_functions.dart';
 
 class DaysFilterButtons extends StatefulWidget {
-  DaysFilterButtons({Key? key, required this.daysCallback}) : super(key: key);
+  const DaysFilterButtons({Key? key, required this.daysCallback}) : super(key: key);
 
-  Function(DaysSelected) daysCallback;
+  final Function(DaysSelected) daysCallback;
 
   @override
   State<StatefulWidget> createState() => DaysFilterButtonsState(daysCallback);

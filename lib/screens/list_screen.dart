@@ -68,15 +68,15 @@ class CriptoListSelection extends StatelessWidget {
                                             style:
                                                 const TextStyle(fontSize: 20)),
                                         const SizedBox(height: 6),
-                                        percentageIndicator(
-                                            criptosList[index].percentage)
+                                        PercentageIndicator(
+                                            percentage: criptosList[index].percentage)
                                       ],
                                     )
                                   ],
                                 ))));
                   }))
         ])),
-        bottomNavigationBar: bottomNavigation());
+        bottomNavigationBar: const CustomBottomNavigation());
   }
 }
 
