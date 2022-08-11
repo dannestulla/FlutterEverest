@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:listagem_cripto/screen_components/percentage_indicator.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:listagem_cripto/screen_components/card.dart';
 import 'package:listagem_cripto/screens/cripto_screen.dart';
 
+import '../cripto_providers.dart';
 import '../screen_components/bottom_navigation.dart';
 
-class CriptoListSelection extends StatelessWidget {
-  CriptoListSelection({Key? key}) : super(key: key);
-
-  final List<Criptos> criptosList = [
-    Criptos("ETH", "Ethereum", "R\$ 0,00", "75%"),
-    Criptos("BTC", "Bitcoin", "R\$ 1.000,00", "75%"),
-    Criptos("LTC", "Litecoin", "R\$ 0,00", "-7%")
-  ];
+class CriptoListSelection extends ConsumerWidget {
+  const CriptoListSelection({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
         body: SafeArea(
             child:
@@ -33,47 +29,12 @@ class CriptoListSelection extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, "/selected_cripto",
-                              arguments:
-                                  SelectedCriptoArguments(criptosList[index]));
+                          ref.watch(criptoSelectedProvider.notifier).state =
+                              criptosList[index];
+                          Navigator.pushNamed(context,
+                              SelectedCriptoScreen.selectedCriptoScreen);
                         },
-                        child: Card(
-                            elevation: 0,
-                            child: Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Row(
-                                  children: [
-                                    const Icon(Icons.circle, size: 60),
-                                    Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                              criptosList[index]
-                                                  .currencyInitials,
-                                              style: const TextStyle(
-                                                  fontSize: 20)),
-                                          const SizedBox(height: 6),
-                                          Text(criptosList[index].currencyName,
-                                              style: const TextStyle(
-                                                  fontSize: 16,
-                                                  color: Colors.grey))
-                                        ]),
-                                    const Spacer(),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
-                                      children: [
-                                        Text(criptosList[index].price,
-                                            style:
-                                                const TextStyle(fontSize: 20)),
-                                        const SizedBox(height: 6),
-                                        PercentageIndicator(
-                                            percentage: criptosList[index].percentage)
-                                      ],
-                                    )
-                                  ],
-                                ))));
+                        child: CriptoCard(index));
                   }))
         ])),
         bottomNavigationBar: const CustomBottomNavigation());
