@@ -13,4 +13,12 @@ class Strings {
   static const home = "Home";
   static const carteiras = "Carteiras";
   static const movimentacoes = "Movimentações";
+  static const conversaoDeMoeda = "Conversão de moeda";
+  static const converterDe = "Converter de:";
+  static const converterMoeda = "Converter moeda";
+  static const cancelar = "cancelar";
+  static const confirmar = "Confirmar";
+  static const paraReceberEm = "Para receber em:";
+  static const montanteSerConvertido = "Montante a ser convertido";
+  static const montantePosConversao = "Montante pós conversao";
 }
