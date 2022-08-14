@@ -17,7 +17,7 @@ void bottomSheet(BuildContext context) {
       Center(
           child: Text(
         Strings.efetuadaComSucesso,
-        style: TextStyle(color: Colors.grey, fontSize: 15),
+        style: TextStyle(color: Color.fromARGB(255, 120, 120, 120), fontSize: 15),
       )),
       Spacer()
     ]),
