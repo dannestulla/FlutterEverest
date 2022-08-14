@@ -55,8 +55,8 @@ class ConvertScreen extends StatelessWidget {
                     buttonText: Strings.confirmar,
                     backgroundColor: Color.fromARGB(250, 224, 43, 87),
                     textColor: Colors.white,
-                    route: SelectedCriptoScreen.selectedCriptoScreen,
                     buttonWidth: 120,
+                    showBottomSheet: true,
                   )
                 ],
               )

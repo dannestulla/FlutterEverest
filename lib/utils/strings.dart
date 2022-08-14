@@ -21,4 +21,6 @@ class Strings {
   static const paraReceberEm = "Para receber em:";
   static const montanteSerConvertido = "Montante a ser convertido";
   static const montantePosConversao = "Montante pós conversao";
+  static const conversaoEfetuada = "Conversão efetuada";
+  static const efetuadaComSucesso = "Conversão de moeda efetuada com sucesso!";
 }
