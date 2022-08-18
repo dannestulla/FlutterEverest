@@ -11,6 +11,7 @@ class PercentageIndicator extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40),
         ),
+        elevation: 0,
         color: percentage.toString().contains('-')
             ? const Color.fromARGB(255, 255, 118, 118)
             : const Color.fromARGB(255, 101, 234, 105),
