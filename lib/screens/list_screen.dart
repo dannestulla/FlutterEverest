@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:listagem_cripto/screen_components/card.dart';
+import 'package:listagem_cripto/screen_components/cards.dart';
 import 'package:listagem_cripto/screens/cripto_screen.dart';
 import 'package:listagem_cripto/utils/styles.dart';
 import '../providers/cripto_providers.dart';

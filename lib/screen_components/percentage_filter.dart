@@ -28,7 +28,9 @@ class PercentageFilterState extends State<PercentageFilter> {
                 child: InkWell(
                     onTap: () {
                       setState(() {
-                        percentageOptionsSelected.forEach((element) {element.isActive = false;});
+                        percentageOptionsSelected.forEach((element) {
+                          element.isActive = false;
+                        });
                         option.isActive = !option.isActive;
                       });
                     },
@@ -60,6 +62,7 @@ enum PercentageSelected { twentyFive, fifthy, seventyFive, oneHundred }
 class PercentageOptions {
   String percentage;
   bool isActive;
+
   PercentageOptions(this.percentage, this.isActive);
 }
 
