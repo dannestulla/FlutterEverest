@@ -23,4 +23,5 @@ class Strings {
   static const montantePosConversao = "Montante pós conversao";
   static const conversaoEfetuada = "Conversão efetuada";
   static const efetuadaComSucesso = "Conversão de moeda efetuada com sucesso!";
+  static const transacoes = "Transações";
 }
