@@ -5,7 +5,7 @@ import 'package:listagem_cripto/providers/cripto_providers.dart';
 
 import '../screens/success_bottom_sheet.dart';
 
-class CustomButton extends ConsumerWidget {
+class CustomButton extends StatelessWidget {
   const CustomButton(
       {Key? key,
       required this.buttonText,
@@ -25,7 +25,7 @@ class CustomButton extends ConsumerWidget {
   final Function? transaction;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return TextButton(
       child: Text(
         buttonText,
