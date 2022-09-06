@@ -1,7 +1,8 @@
 import 'dart:math';
 
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:listagem_cripto/screen_components/cripto_chart.dart';
+
+import '../models/cripto_chart_model.dart';
 
 List<charts.Series<CriptoChartModel, double>> createCriptoData(int numberOfDays) {
   final criptoData = List<double>.generate(

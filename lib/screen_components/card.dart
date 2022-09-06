@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:listagem_cripto/cripto_providers.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:listagem_cripto/screen_components/percentage_indicator.dart';
 
-class CriptoCard extends StatelessWidget {
-  const CriptoCard(this.index, {Key? key}) : super(key: key);
-  final int index;
+import '../models/transactions_model.dart';
+import '../screens/list_screen.dart';
+
+class CriptoCard extends ConsumerWidget {
+  const CriptoCard(this.criptos, {Key? key}) : super(key: key);
+  final Criptos criptos;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Card(
         elevation: 0,
         child: Padding(
@@ -16,21 +19,58 @@ class CriptoCard extends StatelessWidget {
               children: [
                 const Icon(Icons.circle, size: 60),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  Text(criptosList[index].currencyInitials,
+                  Text(criptos.currencyInitials,
                       style: const TextStyle(fontSize: 20)),
                   const SizedBox(height: 6),
-                  Text(criptosList[index].currencyName,
+                  Text(criptos.currencyName,
                       style: const TextStyle(fontSize: 16, color: Colors.grey))
                 ]),
                 const Spacer(),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(criptosList[index].price,
-                        style: const TextStyle(fontSize: 20)),
+                    Text(criptos.price, style: const TextStyle(fontSize: 20)),
                     const SizedBox(height: 6),
-                    PercentageIndicator(
-                        percentage: criptosList[index].percentage)
+                    PercentageIndicator(percentage: criptos.percentage)
+                  ],
+                )
+              ],
+            )));
+  }
+}
+
+class TransactionsCard extends ConsumerWidget {
+  const TransactionsCard(this.transactions, {Key? key}) : super(key: key);
+  final Transactions transactions;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Card(
+        elevation: 0,
+        child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              children: [
+                const Icon(Icons.code),
+                const SizedBox(width: 10),
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                  Text(
+                      "${transactions.amount.toString()} ${transactions.firstCurrency}",
+                      style: const TextStyle(fontSize: 18)),
+                  const SizedBox(height: 10),
+                  Text(transactions.date.toString())
+                ]),
+                const Spacer(),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                        "${transactions.quantity.toString()} ${transactions.secondCurrency}",
+                        style: const TextStyle(fontSize: 18)),
+                    const SizedBox(height: 10),
+                    Text(transactions.price.toString())
                   ],
                 )
               ],

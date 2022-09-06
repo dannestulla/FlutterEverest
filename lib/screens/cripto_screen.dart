@@ -4,7 +4,7 @@ import 'package:listagem_cripto/screen_components/button.dart';
 import 'package:listagem_cripto/screen_components/titles.dart';
 import 'package:listagem_cripto/screens/convert_screen.dart';
 import 'package:listagem_cripto/utils/strings.dart';
-import '../cripto_providers.dart';
+import '../providers/cripto_providers.dart';
 import '../screen_components/app_bar.dart';
 import '../screen_components/cripto_chart.dart';
 import '../screen_components/details_row.dart';
@@ -15,10 +15,10 @@ class SelectedCriptoScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final currencyName = ref.watch(criptoSelectedProvider.notifier);
+    final currencyName = ref.watch(criptoSelected.notifier);
 
     return Scaffold(
-        appBar: const CustomAppBar(),
+        appBar: const CustomAppBar(title: Strings.detalhes),
         body: SingleChildScrollView(
             child: Padding(
                 padding: const EdgeInsets.all(20),
