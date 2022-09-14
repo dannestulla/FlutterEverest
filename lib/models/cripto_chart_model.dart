@@ -1,6 +1,6 @@
 class CriptoChartModel {
-  final double price;
-  final double date;
+  final num price;
+  final num date;
 
   CriptoChartModel(this.price, this.date);
 }

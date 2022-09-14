@@ -17,7 +17,6 @@ class CriptoCard extends ConsumerWidget {
             padding: const EdgeInsets.all(10.0),
             child: Row(
               children: [
-                const Icon(Icons.circle, size: 60),
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(criptos.currencyInitials,
                       style: const TextStyle(fontSize: 20)),

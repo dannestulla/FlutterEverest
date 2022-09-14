@@ -1,5 +1,6 @@
 class Transactions {
-  Transactions(this.date, this.quantity, this.amount, this.price, this.firstCurrency, this.secondCurrency);
+  Transactions(this.date, this.quantity, this.amount, this.price,
+      this.firstCurrency, this.secondCurrency);
 
   final String date;
   final String quantity;

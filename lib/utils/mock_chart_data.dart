@@ -3,22 +3,25 @@ import 'dart:math';
 import 'package:charts_flutter/flutter.dart' as charts;
 
 import '../models/cripto_chart_model.dart';
+import '../models/price_history/price_history_valuesx.dart';
 
-List<charts.Series<CriptoChartModel, double>> createCriptoData(int numberOfDays) {
-  final criptoData = List<double>.generate(
-      numberOfDays, (index) => (Random().nextDouble() + 3) * index);
-  final cdiData = List<double>.generate(
+List<charts.Series<CriptoChartModel, num>> createCriptoData(ValuesX valuesX) {
+
+  /*final criptoData = List<double>.generate(
+      numberOfDays, (index) => (Random().nextDouble() + 3) * index);*/
+  final numberOfDays = valuesX.values.length;
+  final cdiData = List<num>.generate(
       numberOfDays, (index) => (Random().nextDouble() + 2) + index);
 
   return [
-    charts.Series<CriptoChartModel, double>(
+    charts.Series<CriptoChartModel, num>(
       id: 'Cripto',
       colorFn: (_, __) => charts.MaterialPalette.deepOrange.shadeDefault,
       domainFn: (CriptoChartModel model, _) => model.date ,
       measureFn: (CriptoChartModel model, _) => model.price,
-      data: createCriptodata(numberOfDays, criptoData),
+      data: createCriptodata(numberOfDays, valuesX.values),
     ),
-    charts.Series<CriptoChartModel, double>(
+    charts.Series<CriptoChartModel, num>(
       id: 'CDI',
       colorFn: (_, __) => charts.MaterialPalette.gray.shadeDefault,
       dashPatternFn: (_,__) => [5,1],
@@ -30,7 +33,7 @@ List<charts.Series<CriptoChartModel, double>> createCriptoData(int numberOfDays)
 }
 
 List<CriptoChartModel> createCriptodata(
-    int numberOfDays, List<double> priceData) {
+    int numberOfDays, List<num> priceData) {
   double i = 0;
   List<CriptoChartModel> list = [];
   while (i < numberOfDays) {

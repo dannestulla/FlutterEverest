@@ -1,20 +1,25 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:listagem_cripto/models/transactions_model.dart';
+import 'package:listagem_cripto/repository/cripto_repository.dart';
 
-import '../screens/list_screen.dart';
+import '../models/cripto_response/response.dart';
+import '../models/cripto_response/response_data.dart';
+import '../models/price_history/price_history_parameters.dart';
+import '../models/price_history/price_history_response.dart';
 
-final criptoSelected = StateProvider((ref) => getCriptoList()[0]);
+final criptoSelected = StateProvider((ref) => Data());
 
-final criptoListResponse = FutureProvider<List<Criptos>>((ref) {
+final criptoListResponse = FutureProvider<CriptoResponse>((ref) {
   return getCriptoList();
+});
+
+final criptoPriceHistory =
+    FutureProvider.family<ResponsePriceHistory, PriceHistoryParameters>(
+        (ref, parameters) {
+  return getPriceHistory(
+      parameters.startDate, parameters.endDate, parameters.currencySlug);
 });
 
 final transactionsProvider = StateProvider((ref) => <Transactions>[]);
 
-List<Criptos> getCriptoList() {
-  return [
-    Criptos("ETH", "Ethereum", "R\$ 0,00", "75%"),
-    Criptos("BTC", "Bitcoin", "R\$ 1.000,00", "75%"),
-    Criptos("LTC", "Litecoin", "R\$ 0,00", "-7%")
-  ];
-}
+
