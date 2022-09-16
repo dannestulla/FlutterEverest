@@ -3,13 +3,12 @@ import 'dart:math';
 import 'package:charts_flutter/flutter.dart' as charts;
 
 import '../models/cripto_chart_model.dart';
-import '../models/price_history/price_history_valuesx.dart';
 
-List<charts.Series<CriptoChartModel, num>> createCriptoData(ValuesX valuesX) {
+List<charts.Series<CriptoChartModel, num>> createCriptoData(List<List<num>> valuesX) {
 
   /*final criptoData = List<double>.generate(
       numberOfDays, (index) => (Random().nextDouble() + 3) * index);*/
-  final numberOfDays = valuesX.values.length;
+  final numberOfDays = valuesX.length;
   final cdiData = List<num>.generate(
       numberOfDays, (index) => (Random().nextDouble() + 2) + index);
 
@@ -19,7 +18,7 @@ List<charts.Series<CriptoChartModel, num>> createCriptoData(ValuesX valuesX) {
       colorFn: (_, __) => charts.MaterialPalette.deepOrange.shadeDefault,
       domainFn: (CriptoChartModel model, _) => model.date ,
       measureFn: (CriptoChartModel model, _) => model.price,
-      data: createCriptodata(numberOfDays, valuesX.values),
+      data: createCriptodata(numberOfDays, valuesX.first),
     ),
     charts.Series<CriptoChartModel, num>(
       id: 'CDI',

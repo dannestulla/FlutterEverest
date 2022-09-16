@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:listagem_cripto/screen_components/button.dart';
-import 'package:listagem_cripto/screen_components/titles.dart';
-import 'package:listagem_cripto/screens/convert_screen.dart';
-import 'package:listagem_cripto/utils/number_formatt.dart';
 import 'package:listagem_cripto/utils/strings.dart';
-
 import '../models/price_history/price_history_parameters.dart';
 import '../providers/cripto_providers.dart';
 import '../screen_components/app_bar.dart';
-import '../screen_components/cripto_chart.dart';
+import '../screen_components/button.dart';
 import '../screen_components/details_row.dart';
+import '../screen_components/titles.dart';
+import '../utils/number_formatt.dart';
+import 'convert_screen.dart';
 
 class SelectedCriptoScreen extends ConsumerWidget {
   const SelectedCriptoScreen({Key? key}) : super(key: key);
@@ -19,11 +17,10 @@ class SelectedCriptoScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currencySelected = ref.watch(criptoSelected.notifier).state;
+    final priceHistoryParameters = PriceHistoryParameters("2022-05-01", "2022-05-07", "bitcoin");
+    final currencyPriceHistory = ref.watch(criptoPriceHistory(priceHistoryParameters));
 
-    final currencyPriceHistory = ref.watch(criptoPriceHistory(
-        PriceHistoryParameters("2022-05-01", "2022-05-07", "bitcoin")));
-
-    return Scaffold(
+    return SafeArea(child: Scaffold(
         appBar: const CustomAppBar(title: Strings.detalhes),
         body: currencyPriceHistory.when(
             error: (error, stackTrace) => Text(error.toString()),
@@ -37,7 +34,7 @@ class SelectedCriptoScreen extends ConsumerWidget {
                         MainTitle(
                             "${Strings.moeda}\n${currencySelected.name!}"),
                         const SizedBox(height: 20),
-                        CriptoChart(priceHistory.data.values!),
+                        //CriptoChart(priceHistory.data.values),
                         const SizedBox(height: 20),
                         const SubTitle(Strings.informacoes),
                         const Divider(
@@ -70,6 +67,6 @@ class SelectedCriptoScreen extends ConsumerWidget {
                                 route: ConvertScreen.convertScreen,
                                 buttonWidth: 340)),
                       ],
-                    )))));
+                    ))))));
   }
 }

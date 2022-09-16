@@ -1,13 +1,12 @@
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:listagem_cripto/models/price_history/price_history_valuesx.dart';
 
 part 'response_datax.g.dart';
 @JsonSerializable()
 class DataX {
-  final ValuesX? values;
+  final List<List<num>> values;
 
-  DataX({this.values});
+  DataX({required this.values});
 
   factory DataX.fromJson(Map<String, dynamic> json) =>
       _$DataXFromJson(json);

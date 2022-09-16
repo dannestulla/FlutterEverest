@@ -7,9 +7,9 @@ part of 'response_datax.dart';
 // **************************************************************************
 
 DataX _$DataXFromJson(Map<String, dynamic> json) => DataX(
-      values: json['values'] == null
-          ? null
-          : ValuesX.fromJson(json['values'] as Map<String, dynamic>),
+      values: (json['values'] as List<dynamic>)
+          .map((e) => (e as List<dynamic>).map((e) => e as num).toList())
+          .toList(),
     );
 
 Map<String, dynamic> _$DataXToJson(DataX instance) => <String, dynamic>{
