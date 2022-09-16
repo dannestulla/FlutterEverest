@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:listagem_cripto/utils/strings.dart';
 import '../models/price_history/price_history_parameters.dart';
+import '../models/price_history/price_history_response.dart';
 import '../providers/cripto_providers.dart';
 import '../screen_components/app_bar.dart';
 import '../screen_components/button.dart';
@@ -18,7 +19,7 @@ class SelectedCriptoScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final currencySelected = ref.watch(criptoSelected.notifier).state;
     final priceHistoryParameters = PriceHistoryParameters("2022-05-01", "2022-05-07", "bitcoin");
-    final currencyPriceHistory = ref.watch(criptoPriceHistory(priceHistoryParameters));
+    final AsyncValue<ResponsePriceHistory> currencyPriceHistory = ref.watch(criptoPriceHistory(priceHistoryParameters));
 
     return SafeArea(child: Scaffold(
         appBar: const CustomAppBar(title: Strings.detalhes),
