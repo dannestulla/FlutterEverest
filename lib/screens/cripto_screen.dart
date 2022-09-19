@@ -40,8 +40,8 @@ class _SelectedCriptoScreenState extends ConsumerState<SelectedCriptoScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                       /* MainTitle(
-                            "${Strings.moeda}\n${currencySelected.name!}"),*/
+                       MainTitle(
+                            "${Strings.moeda}\n${currencySelected.name!}"),
                         const SizedBox(height: 20),
                         //CriptoChart(priceHistory.data.values),
                         const SizedBox(height: 20),
@@ -51,22 +51,22 @@ class _SelectedCriptoScreenState extends ConsumerState<SelectedCriptoScreen> {
                           thickness: 1,
                           color: Color.fromARGB(255, 220, 220, 220),
                         ),
-                       /* DetailsRow(
+                       DetailsRow(
                             title: currencySelected.name!,
                             value: formatToCurrency(currencySelected
                                 .metrics?.market_data.price_usd),
-                            subTitle: Strings.valorAtual),*/
+                            subTitle: Strings.valorAtual),
                         const SizedBox(height: 10),
                         const DetailsRowPercent(
                             title: Strings.capDeMercado, percentage: "+0,2%"),
-                        /*DetailsRow(
+                        DetailsRow(
                             title: Strings.valorMinimo,
                             value: formatToCurrency(
                                 currencySelected.metrics!.cycle_low.price)),
                         DetailsRow(
                             title: Strings.valorMaximo,
                             value: formatToCurrency(
-                                currencySelected.metrics!.allTimeHigh.price)),*/
+                                currencySelected.metrics!.allTimeHigh.price)),
                         const Center(
                             child: CustomButton(
                                 buttonText: Strings.converterMoeda,
