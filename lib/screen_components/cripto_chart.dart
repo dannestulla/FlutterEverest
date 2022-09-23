@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:listagem_cripto/utils/extention_functions.dart';
 
@@ -8,14 +8,16 @@ import 'chart_type_button.dart';
 import 'days_filter.dart';
 
 class CriptoChart extends StatefulWidget {
-  const CriptoChart({Key? key}) : super(key: key);
+  const CriptoChart(this.values, {Key? key}) : super(key: key);
+  final List<List<num>> values;
 
   @override
   State<CriptoChart> createState() => _CriptoChartState();
 }
 
 class _CriptoChartState extends State<CriptoChart> {
-  List<charts.Series<dynamic, num>> seriesList2 = createCriptoData(5);
+  late List<charts.Series<dynamic, num>> seriesList2 =
+      createCriptoData(widget.values);
   final bool animate2 = false;
 
   @override

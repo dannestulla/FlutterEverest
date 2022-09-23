@@ -13,7 +13,7 @@ import 'package:listagem_cripto/screens/list_screen.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(CriptoListSelection());
+    await tester.pumpWidget(const CriptoListSelection());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);

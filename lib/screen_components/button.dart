@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:listagem_cripto/models/transactions_model.dart';
-import 'package:listagem_cripto/providers/cripto_providers.dart';
 
 import '../screens/success_bottom_sheet.dart';
 
